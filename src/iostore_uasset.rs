@@ -768,7 +768,7 @@ impl UObjectPropertyData {
                 }
             },
             Self::Float(val) => {
-                writer.write_all(format!("{val:.}\n").as_bytes()).unwrap();
+                writer.write_all(format!("{val}\n").as_bytes()).unwrap();
             },
             Self::String(val) => {
                 if val.is_empty() {
@@ -800,7 +800,7 @@ impl UObjectPropertyData {
                         Self::Int32(v) => v.to_string(),
                         Self::UInt16(v) => v.to_string(),
                         Self::String(v) => v.clone(),
-                        Self::Float(v) => format!("{v:.}"),
+                        Self::Float(v) => format!("{v}"),
                         Self::Byte(v) => format!("{v:x}"),
                         _ => panic!("Unprintable map key type: {key_type}")
                     };
